@@ -1,0 +1,16 @@
+[Unit]
+Description=Airflow scheduler daemon service template for Ubuntu 20.04.2
+After=network.target postgresql.service
+Wants=postgresql.service
+[Service]
+#PIDFile=/run/airflow/scheduler.pid
+User=ubuntu
+Group=ubuntu
+Type=simple
+EnvironmentFile=-/tmp/.magic-environment-file
+ExecStart=/usr/bin/bash -c 'source /home/ubuntu/airflow/airflow_venv/bin/activate ; /home/ubuntu/airflow/airflow_venv/bin/airflow scheduler'
+Restart=on-failure
+RestartSec=60s
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target

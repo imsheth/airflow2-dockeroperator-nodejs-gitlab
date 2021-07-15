@@ -1,0 +1,16 @@
+[Unit]
+Description=Airflow webserver daemon service template for Ubuntu 20.04.2
+After=network.target postgresql.service
+Wants=postgresql.service
+[Service]
+#PIDFile=/run/airflow/webserver.pid
+User=ubuntu
+Group=ubuntu
+Type=simple
+EnvironmentFile=-/tmp/.magic-environment-file
+ExecStart=/usr/bin/bash -c 'source /home/ubuntu/airflow/airflow_venv/bin/activate ; /home/ubuntu/airflow/airflow_venv/bin/airflow db upgrade ; /home/ubuntu/airflow/airflow_venv/bin/airflow webserver'
+Restart=on-failure
+RestartSec=60s
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
