@@ -6,10 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "Proprietary",
+  "author": "Ishan Sheth <contact@imsheth.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "14.1"
+  },
   "private": true,
   "dependencies": {
     "pg": "8.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imsheth/airflow2-dockeroperator-nodejs-gitlab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imsheth/airflow2-dockeroperator-nodejs-gitlab/issues"
+  },
+  "homepage": "https://github.com/imsheth/airflow2-dockeroperator-nodejs-gitlab#readme"
 }
 
